@@ -30,7 +30,7 @@ while True:
         sleep(10)
         #Create the Message
         msg = MIMEMultipart()
-        msg[ 'Subject'] = 'INTRUDER ALERT..!!'
+        msg[ 'Subject'] = 'HYDROPONICS BIN DANGEROUSLY EMPTY!!'
         msg['From'] = from_email_addr
         msg['To'] = to_email_addr
         #send Mail
@@ -41,3 +41,4 @@ while True:
         server.quit()
         print('Email sent')
         Alarm_state = False
+        quit()
