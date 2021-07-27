@@ -28,19 +28,16 @@ while True:
     if Alarm_state == True:
         led.on()
         sleep(10)
-
-            #Create the Message
-            msg = MIMEMultipart()
-            msg[ 'Subject'] = 'INTRUDER ALERT..!!'
-            msg['From'] = from_email_addr
-            msg['To'] = to_email_addr
-
-
-            #send Mail
-            server = smtplib.SMTP('smtp.gmail.com', 587)
-            server.starttls()
-            server.login(from_email_addr, from_email_password)
-            server.sendmail(from_email_addr, to_email_addr, msg.as_string())
-            server.quit()
-            print('Email sent')
-            Alarm_state = False
+        #Create the Message
+        msg = MIMEMultipart()
+        msg[ 'Subject'] = 'INTRUDER ALERT..!!'
+        msg['From'] = from_email_addr
+        msg['To'] = to_email_addr
+        #send Mail
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login(from_email_addr, from_email_password)
+        server.sendmail(from_email_addr, to_email_addr, msg.as_string())
+        server.quit()
+        print('Email sent')
+        Alarm_state = False
