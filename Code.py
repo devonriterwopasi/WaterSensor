@@ -8,8 +8,11 @@ import datetime
 import smtplib
 from time import sleep
 
-led = LED(17)
-button = Button(16)
+button2 = Button(17)
+button1 = Button(16)
+sudo tvservice --off
+echo 0 | sudo tee /sys/devices/platform/soc/3f980000.usb/buspower >/dev/null
+sudo ifconfig wlan0 down
 
 #replace the next three lines with your credentials
 from_email_addr = 'nemosdream131@gmail.com'
@@ -18,15 +21,16 @@ to_email_addr = 'devonriter@gmail.com'
 
 #Create Alarm State by default it is off.
 Alarm_state = False
+sleep(3600)
 
 while True:
 
-    if button.is_pressed:
+    if button1.is_pressed or button2.is_pressed:
         Alarm_state = True
         print('Alarm ON')
+        sudo ifconfig wlan0 up
 
     if Alarm_state == True:
-        led.on()
         sleep(10)
         #Create the Message
         msg = MIMEMultipart()
