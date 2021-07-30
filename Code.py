@@ -21,7 +21,7 @@ to_email_addr = 'devonriter@gmail.com'
 
 #Create Alarm State by default it is off.
 Alarm_state = False
-sleep(3600)
+sleep(30)
 
 while True:
 
