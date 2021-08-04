@@ -1,3 +1,6 @@
+// link to instructiobns for main code: https://roboticadiy.com/motion-detection-video-captured-email-alert-using-raspberry-pi-4/
+// Code to set pi to run program at start up https://www.dexterindustries.com/howto/auto-run-python-programs-on-the-raspberry-pi/
+        
 from gpiozero import MotionSensor, Button, LED
 from picamera import PiCamera
 from email.mime.multipart import MIMEMultipart
