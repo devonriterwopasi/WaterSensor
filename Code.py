@@ -11,8 +11,9 @@ import datetime
 import smtplib
 from time import sleep
 
-button2 = Button(17)
+button2 = Button(20)
 button1 = Button(16)
+led = LED(17)
 sudo tvservice --off
 echo 0 | sudo tee /sys/devices/platform/soc/3f980000.usb/buspower >/dev/null
 sudo ifconfig wlan0 down
@@ -31,9 +32,10 @@ while True:
     if button1.is_pressed or button2.is_pressed:
         Alarm_state = True
         print('Alarm ON')
-        sudo ifconfig wlan0 up
 
     if Alarm_state == True:
+        led.on()
+        sudo ifconfig wlan0 up
         sleep(10)
         #Create the Message
         msg = MIMEMultipart()
