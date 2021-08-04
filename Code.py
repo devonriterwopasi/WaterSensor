@@ -14,9 +14,6 @@ from time import sleep
 button2 = Button(20)
 button1 = Button(16)
 led = LED(17)
-sudo tvservice --off
-echo 0 | sudo tee /sys/devices/platform/soc/3f980000.usb/buspower >/dev/null
-sudo ifconfig wlan0 down
 
 #replace the next three lines with your credentials
 from_email_addr = 'nemosdream131@gmail.com'
@@ -35,7 +32,6 @@ while True:
 
     if Alarm_state == True:
         led.on()
-        sudo ifconfig wlan0 up
         sleep(10)
         #Create the Message
         msg = MIMEMultipart()
